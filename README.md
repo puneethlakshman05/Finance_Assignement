@@ -1,3 +1,4 @@
+
 # 🌌 FinanceFlow: Premium Pro Dashboard
 
 An elite, internship-ready financial tracking ecosystem built with **Vite**, **React**, and **Tailwind CSS v4**.
@@ -50,4 +51,6 @@ This project has been engineered to meet the highest standards of professional w
 | **Consultant (Viewer)** | user@finance.com | password |
 
 ## 📄 License
-MIT | Engineered for Excellence
+MIT | Engineered for Excellent
+# Finance_Assignement
+>>>>>>> d76087aba69621616684c7926eb01d53952db017

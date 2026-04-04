@@ -1,9 +1,24 @@
-import React from 'react';
-import { Edit2, Trash2, Calendar, CreditCard } from 'lucide-react';
+import React, { useState } from 'react';
+import { Edit2, Trash2, Calendar, CreditCard, ArrowUpDown } from 'lucide-react';
 import { useFinance } from '../../context/FinanceContext';
 
 const TransactionTable = ({ onEdit }) => {
     const { transactions, isAdmin, deleteTransaction } = useFinance();
+    const [sortConfig, setSortConfig] = useState({ key: 'date', direction: 'desc' });
+
+    const handleSort = (key) => {
+        let direction = 'desc';
+        if (sortConfig.key === key && sortConfig.direction === 'desc') {
+            direction = 'asc';
+        }
+        setSortConfig({ key, direction });
+    };
+
+    const sortedTransactions = [...transactions].sort((a, b) => {
+        if (a[sortConfig.key] < b[sortConfig.key]) return sortConfig.direction === 'asc' ? -1 : 1;
+        if (a[sortConfig.key] > b[sortConfig.key]) return sortConfig.direction === 'asc' ? 1 : -1;
+        return 0;
+    });
 
     if (transactions.length === 0) {
         return (
@@ -22,15 +37,23 @@ const TransactionTable = ({ onEdit }) => {
             <table className="w-full text-left min-w-[700px]">
                 <thead className="bg-primary/5 border-b border-[var(--border)]">
                     <tr>
-                        <th className="py-5 px-8 text-[9px] font-black text-[var(--text-dim)] uppercase tracking-widest">Date</th>
-                        <th className="py-5 px-8 text-[9px] font-black text-[var(--text-dim)] uppercase tracking-widest">Description</th>
-                        <th className="py-5 px-8 text-[9px] font-black text-[var(--text-dim)] uppercase tracking-widest">Category</th>
-                        <th className="py-5 px-8 text-[9px] font-black text-[var(--text-dim)] uppercase tracking-widest text-right">Amount</th>
+                        <th onClick={() => handleSort('date')} className="py-5 px-8 text-[9px] font-black text-[var(--text-dim)] uppercase tracking-widest cursor-pointer hover:text-primary transition-colors">
+                            <div className="flex items-center gap-1">Date <ArrowUpDown size={10} /></div>
+                        </th>
+                        <th onClick={() => handleSort('description')} className="py-5 px-8 text-[9px] font-black text-[var(--text-dim)] uppercase tracking-widest cursor-pointer hover:text-primary transition-colors">
+                            <div className="flex items-center gap-1">Description <ArrowUpDown size={10} /></div>
+                        </th>
+                        <th onClick={() => handleSort('category')} className="py-5 px-8 text-[9px] font-black text-[var(--text-dim)] uppercase tracking-widest cursor-pointer hover:text-primary transition-colors">
+                            <div className="flex items-center gap-1">Category <ArrowUpDown size={10} /></div>
+                        </th>
+                        <th onClick={() => handleSort('amount')} className="py-5 px-8 text-[9px] font-black text-[var(--text-dim)] uppercase tracking-widest cursor-pointer hover:text-primary transition-colors text-right">
+                            <div className="flex items-center justify-end gap-1">Amount <ArrowUpDown size={10} /></div>
+                        </th>
                         {isAdmin && <th className="py-5 px-8 text-[9px] font-black text-[var(--text-dim)] uppercase tracking-widest text-right">Actions</th>}
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-[var(--border)]">
-                    {transactions.map((t) => (
+                    {sortedTransactions.map((t) => (
                         <tr key={t.id} className="group hover:bg-primary/5 transition-colors">
                             <td className="py-5 px-8">
                                 <div className="flex items-center gap-4">

@@ -6,7 +6,7 @@ import { useFinance } from '../../context/FinanceContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Transactions = () => {
-    const { isAdmin, exportData, searchTerm, setSearchTerm } = useFinance();
+    const { isAdmin, exportData, searchTerm, setSearchTerm, categoryFilter, setCategoryFilter } = useFinance();
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [editingTransaction, setEditingTransaction] = useState(null);
 
@@ -31,8 +31,25 @@ const Transactions = () => {
                 </div>
 
                 <div className="flex items-center gap-4 w-full lg:w-auto">
-                    <div className="flex bg-white/5 p-1 rounded-2xl border border-white/5 flex-1 lg:flex-none">
-                        <button onClick={() => exportData('json')} className="flex-1 lg:px-4 py-3 text-[9px] font-black uppercase text-slate-400 hover:text-white flex items-center justify-center gap-2 transition-all">
+                <div className="flex bg-white/5 p-1 rounded-2xl border border-white/5 flex-1 lg:flex-none">
+                        <select 
+                            value={categoryFilter}
+                            onChange={(e) => setCategoryFilter(e.target.value)}
+                            className="bg-transparent text-[9px] font-black uppercase text-slate-400 hover:text-white px-3 py-2 outline-none cursor-pointer"
+                        >
+                            <option value="All" className="text-black">ALL CATEGORIES</option>
+                            <option value="Salary" className="text-black">SALARY</option>
+                            <option value="Food" className="text-black">FOOD</option>
+                            <option value="Transport" className="text-black">TRANSPORT</option>
+                            <option value="Rent" className="text-black">RENT</option>
+                            <option value="Entertainment" className="text-black">ENTERTAINMENT</option>
+                            <option value="Shopping" className="text-black">SHOPPING</option>
+                            <option value="Utilities" className="text-black">UTILITIES</option>
+                            <option value="Health" className="text-black">HEALTH</option>
+                            <option value="Investments" className="text-black">INVESTMENTS</option>
+                            <option value="Other" className="text-black">OTHER</option>
+                        </select>
+                        <button onClick={() => exportData('json')} className="flex-1 lg:px-4 py-3 text-[9px] font-black uppercase text-slate-400 hover:text-white flex items-center justify-center gap-2 transition-all border-l border-white/5">
                             <Download size={14} /> JSON
                         </button>
                         <button onClick={() => exportData('csv')} className="flex-1 lg:px-4 py-3 text-[9px] font-black uppercase text-slate-400 hover:text-white border-l border-white/5 flex items-center justify-center gap-2 transition-all">

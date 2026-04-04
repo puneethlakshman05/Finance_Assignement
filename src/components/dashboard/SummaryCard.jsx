@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 

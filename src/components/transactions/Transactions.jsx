@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Search, Plus, Filter, Download } from 'lucide-react';
 import TransactionTable from './TransactionTable';
 import TransactionForm from './TransactionForm';
@@ -31,8 +31,8 @@ const Transactions = () => {
                 </div>
 
                 <div className="flex items-center gap-4 w-full lg:w-auto">
-                <div className="flex bg-white/5 p-1 rounded-2xl border border-white/5 flex-1 lg:flex-none">
-                        <select 
+                    <div className="flex bg-white/5 p-1 rounded-2xl border border-white/5 flex-1 lg:flex-none">
+                        <select
                             value={categoryFilter}
                             onChange={(e) => setCategoryFilter(e.target.value)}
                             className="bg-transparent text-[9px] font-black uppercase text-slate-400 hover:text-white px-3 py-2 outline-none cursor-pointer"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { X, Save } from 'lucide-react';
 import { useFinance } from '../../context/FinanceContext';
 import { motion } from 'framer-motion';

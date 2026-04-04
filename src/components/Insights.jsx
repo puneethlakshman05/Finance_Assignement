@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { TrendingUp, Sparkles, Zap, PieChart, BarChart3 } from 'lucide-react';
 import { useFinance } from '../context/FinanceContext';
 import { motion } from 'framer-motion';

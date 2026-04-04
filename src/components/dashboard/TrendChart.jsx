@@ -1,4 +1,4 @@
-import React from 'react';
+
 import {
     AreaChart,
     Area,
@@ -28,7 +28,7 @@ const TrendChart = () => {
         const month = dateObj.toLocaleString('en-US', { month: 'short' });
         const year = dateObj.getFullYear();
         const monthKey = `${month} ${year}`;
-        
+
         if (!monthlyData[monthKey]) {
             monthlyData[monthKey] = {
                 month: month, // unique short month for display

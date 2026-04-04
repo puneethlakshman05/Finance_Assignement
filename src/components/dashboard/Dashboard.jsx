@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { IndianRupee, TrendingUp, TrendingDown, LayoutDashboard, SearchX } from 'lucide-react';
 import SummaryCard from './SummaryCard';
 import TrendChart from './TrendChart';

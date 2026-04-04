@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Edit2, Trash2, Calendar, CreditCard, ArrowUpDown } from 'lucide-react';
 import { useFinance } from '../../context/FinanceContext';
 

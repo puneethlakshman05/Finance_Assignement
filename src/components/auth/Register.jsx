@@ -50,7 +50,7 @@ const Register = ({ onSwitch }) => {
                     <label className="text-[10px] font-black text-[var(--text-dim)] uppercase tracking-widest ml-1">Email Address</label>
                     <input
                         type="email"
-                        placeholder="user@example.com"
+                        placeholder="Email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -74,7 +74,7 @@ const Register = ({ onSwitch }) => {
                         <label className="text-[10px] font-black text-[var(--text-dim)] uppercase tracking-widest ml-1">Password</label>
                         <input
                             type="password"
-                            placeholder="••••••••"
+                            placeholder="Password"
                             required
                             value={formData.password}
                             onChange={(e) => setFormData({ ...formData, password: e.target.value })}

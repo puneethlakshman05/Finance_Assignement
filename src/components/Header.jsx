@@ -25,21 +25,6 @@ const Header = ({ title, onMenuOpen }) => {
             </div>
 
             <div className="flex items-center gap-4 lg:gap-6">
-                <div className="hidden xl:flex items-center gap-2 bg-[var(--bg-card)] p-1 rounded-2xl border border-[var(--border)]">
-                    {['All', 'Food', 'Salary', 'Shopping', 'Transport'].map((cat) => (
-                        <button
-                            key={cat}
-                            onClick={() => setCategoryFilter(cat)}
-                            className={`px-4 py-2 text-[9px] font-black uppercase rounded-xl transition-all ${categoryFilter === cat
-                                    ? 'bg-primary text-white shadow-md'
-                                    : 'text-[var(--text-dim)] hover:text-primary hover:bg-primary/5'
-                                }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
-
                 <div className="flex items-center gap-3">
                     <button
                         onClick={toggleTheme}

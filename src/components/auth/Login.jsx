@@ -34,7 +34,7 @@ const Login = ({ onSwitch }) => {
                     <label className="text-[10px] font-black text-[var(--text-dim)] uppercase tracking-widest ml-1">Email Address</label>
                     <input
                         type="email"
-                        placeholder="user@example.com"
+                        placeholder="Email"
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -46,7 +46,7 @@ const Login = ({ onSwitch }) => {
                     <label className="text-[10px] font-black text-[var(--text-dim)] uppercase tracking-widest ml-1">Password</label>
                     <input
                         type="password"
-                        placeholder="••••••••"
+                        placeholder="Password"
                         required
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}

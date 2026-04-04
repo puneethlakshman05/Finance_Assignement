@@ -5,7 +5,7 @@ An elite, financial tracking ecosystem built with Vite, React, and Tailwind CSS 
 ## Overview
 FinanceFlow is designed for high-fidelity financial synchronization, offering dynamic insights on burn vectors, equity retention, and fluid liquid asset tracking. Built with a role-based architecture, it provides an elite onboarding process and a truly responsive, glassmorphic UI.
 
-##  Core Intelligence
+## Core Intelligence
 
 ###  Multi-Node Authentication
 - **Role-Based Access (Architect vs Consultant)**: Strategic data management layers allowing restricted read/write access.
